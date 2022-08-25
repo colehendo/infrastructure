@@ -1,9 +1,13 @@
 #!/bin/bash
 
 function delete_cluster() {
-    kops delete cluster \
+    if ! kops delete cluster \
         --name "${KOPS_CLUSTER_NAME}" \
-        --yes
+        --state "${KOPS_STATE_STORE}" \
+        --yes; then
+
+        exit 1
+    fi
 }
 
 . ../utils/export-print-colors.sh
