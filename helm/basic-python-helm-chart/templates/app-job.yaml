@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "name" . }}
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      restartPolicy: OnFailure
+      
+  backoffLimit: {{ .Values.job.backoffLimit }}

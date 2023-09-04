@@ -1,0 +1,21 @@
+job:
+  name: ""
+  backoffLimit: 3
+
+image:
+  repository: colehendo
+  pullPolicy: IfNotPresent
+  name: "colehendo-app"
+  tag: "1.0.0"
+  imagePullSecrets: []
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+
+service:
+  port: 80
