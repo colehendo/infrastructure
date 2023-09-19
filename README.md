@@ -1,2 +1,2 @@
 # infrastructure-examples
-This repository is used to house basic examples of provisioning and deprovisioning basic infrastructure as references for future use.
+This repository houses examples of provisioning and deprovisioning infrastructure. These examples can be used as references when building components in the future to lower development time.
